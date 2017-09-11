@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::post('/api/login', 'api\UserController@login');
+
+Route::get('/todos', 'TodoController')->middleware('auth:api');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
